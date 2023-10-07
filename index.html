@@ -28,13 +28,21 @@
             <!--포춘쿠키 이미지 넣기-->
             <div id="box-container">
                 <div class="box">
-                    <img src="./fortune-cookie-before.png" alt="포춘쿠키">
+                    <img 
+                    src="./fortune-cookie-before.png" 
+                    alt="포춘쿠키"
+                    onclick="selectCookie(1)"
+                    >
                 </div>
                 <div class="box">
-                    <img src="./fortune-cookie-before.png" alt="포춘쿠키">
+                    <img src="./fortune-cookie-before.png" alt="포춘쿠키"
+                    onclick="selectCookie(2)"
+                    >
+                   
                 </div>
                 <div class="box">
-                    <img src="./fortune-cookie-before.png" alt="포춘쿠키">
+                    <img src="./fortune-cookie-before.png" alt="포춘쿠키"
+                    onclick="selectCookie(3)">
                 </div>
             </div>
             <!--포춘쿠키 운세 결과 보여주기--> 
@@ -71,6 +79,52 @@
                 
             }
         }
+        //포춘쿠키가 선택되었는지 확인하는 리스트
+        const selected = [false, false, false]
+        function selectCookie(number) {
+            //선택되지 않았을 때
+           if(selected[number-1] == false) {
+            console.log(event.target) // 클릭을 한 요소
+            //window, console, document, event => 자바스크립트에서 제공해주는 객체
+            const target=event.target
+            //target은 img 태그이므로 이미지가 있는 위치인 src 속성에 접근할 수 있다
+            target.src = "./fortune-cookie-after.png"
+            //포춘쿠키가 선택되었다는 표시하기
+            selected[number-1]=true
+            //운세 메세지 보여주기
+            showMessage()
+
+           } else {
+            window.alert('이미 선택된 쿠키입니다!!')
+           }
+            
+        }
+        //운세 결과를 메세지창에 띄워주기
+        const messages = [
+            '오래 전에 베푼 작은 친절이 눈덩이처럼 커져 행운으로 너에게 돌아올 예정.',
+            '시간 낭비라고 생각했던 일들이 위기의 순간 나에게 큰 도움이 된다.',
+            '알지 못했던 나의 능력을 찾아내서 모두가 깜짝 놀랄 만한 일을 하게 된다.',
+            '정말 마음껏 열심히 해봐도 좋다. 노력한 만큼 그대로 결과가 나타나서 너무나 뿌듯한 순간이 찾아온다',
+            '내가 안 좋았다고 생각했던 일 덕분에 오히려 더 큰 도움을 받을 일이 생긴다',
+            '그 동안 망설였던 걸, 바로 해볼 것.망설인 시간만큼이나 내가 전혀 예상하지 못한 놀라운 결과를 만날 것이다.',
+            '보기만 해도 웃음이 터지는 너무 재미있는 친구를 새로 만나게 된다.',
+            '나랑 닮은 부분이 너무나 많은 소울메이트를 만나게 된다. 금방 너를 찾아올 예정'
+        ]
+        function showMessage(){
+            const result = document.getElementById("result-message")
+            //랜덤한 인덱스를 반환해준다.
+            let idx = getRandomInt(0, messages.length)//len(message)
+            //운세 결과 창에 랜덤한 운세 매세지를 넣어준다.
+            result.innerText = messages[idx]
+        }
+        //두 정수 사이의 랜덤한 값을 반환해주는 함수
+        //참고 :https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Math/random#%EB%91%90_%EA%B0%92_%EC%82%AC%EC%9D%B4%EC%9D%98_%EC%A0%95%EC%88%98_%EB%82%9C%EC%88%98_%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min)) + min; //최댓값은 제외, 최솟값은 포함ds
+        }
+    
         
     </script>
 </body>
