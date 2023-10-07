@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>포춘쿠키 운세 사이트</title>
+    <title>직업 추천</title>
     <!--css 파일 연결-->
     <link rel="stylesheet" href="./style.css">
 </head>
@@ -23,25 +23,26 @@
             <!--인사말 만들기-->
             <div class="greeting">
                 <h2><span id="name"></span>님 환영합니다.</h2>
-                <h2>오늘의 운세를 확인하기 위해 포춘쿠키를 선택해주세요.</h2>
+                <h2>미래 직업을 추천해드리겠습니다.</h2>
             </div>
             <!--포춘쿠키 이미지 넣기-->
             <div id="box-container">
                 <div class="box">
                     <img 
-                    src="./fortune-cookie-before.png" 
-                    alt="포춘쿠키"
+                    src="./운동선수3).jpg" 
+                    alt="아시아"
                     onclick="selectCookie(1)"
+                    style=""
                     >
                 </div>
                 <div class="box">
-                    <img src="./fortune-cookie-before.png" alt="포춘쿠키"
+                    <img src="./공구1.jpg" alt="포춘쿠키"
                     onclick="selectCookie(2)"
                     >
                    
                 </div>
                 <div class="box">
-                    <img src="./fortune-cookie-before.png" alt="포춘쿠키"
+                    <img src="./전문직(3).jpg" alt="포춘쿠키"
                     onclick="selectCookie(3)">
                 </div>
             </div>
@@ -117,14 +118,7 @@
             //운세 결과 창에 랜덤한 운세 매세지를 넣어준다.
             result.innerText = messages[idx]
         }
-        //두 정수 사이의 랜덤한 값을 반환해주는 함수
-        //참고 :https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Math/random#%EB%91%90_%EA%B0%92_%EC%82%AC%EC%9D%B4%EC%9D%98_%EC%A0%95%EC%88%98_%EB%82%9C%EC%88%98_%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0
-        function getRandomInt(min, max) {
-            min = Math.ceil(min);
-            max = Math.floor(max);
-            return Math.floor(Math.random() * (max - min)) + min; //최댓값은 제외, 최솟값은 포함ds
-        }
-    
+
         
     </script>
 </body>
